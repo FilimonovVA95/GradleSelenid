@@ -1,0 +1,29 @@
+
+plugins {
+    id 'java'
+
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    compile 'org.seleniumhq.selenium:selenium-remote-driver:3.141.59'
+    compile 'com.codeborne:selenide:5.11.1'
+    compile 'io.qameta.allure:allure-testng:2.13.3'
+    compile 'org.testng:testng:7.1.0'
+    compile 'io.qameta.allure:allure-java-commons:2.13.3'
+
+}
+
+test {
+    useTestNG()
+}
+
+
