@@ -1,8 +1,6 @@
 package company.name.pages;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Allure;
-import io.qameta.allure.Step;
 import org.testng.Assert;
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -46,7 +44,7 @@ public abstract class AbstractPage {
     protected void screenShotStep(String screenName) {
         String screenData = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
         String className = this.getClass().getSimpleName();
-        String fullName = "." + File.separator + "target" + File.separator + "screen-shots" + File.separator + className + File.separator + screenData + "_Screenshot.png";
+        String fullName = "screen-shots" + File.separator + className + File.separator + screenData + "_Screenshot";
         byte[] screen = screenshot(fullName).getBytes();
         Allure.addAttachment(screenName + " " + screenData, new ByteArrayInputStream(screen));
     }

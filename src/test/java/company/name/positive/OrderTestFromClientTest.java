@@ -34,6 +34,7 @@ public class OrderTestFromClientTest {
 
         step.openTestStand();
         step.logIn(user.email, user.password);
+
         step.createTest();
         step.inputNameTest(nameTest);
         step.inputSiteTest(siteTest);

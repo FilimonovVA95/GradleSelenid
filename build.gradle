@@ -1,27 +1,40 @@
 
-plugins {
-    id 'java'
 
+plugins {
+    id "java-library"
+    id "io.qameta.allure" version "2.8.1"
+    id "com.github.ben-manes.versions" version "0.28.0"
+}
+
+allure {
+    version = "2.12.0"
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
-    compile 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    compile 'org.seleniumhq.selenium:selenium-remote-driver:3.141.59'
-    compile 'com.codeborne:selenide:5.11.1'
-    compile 'io.qameta.allure:allure-testng:2.13.3'
-    compile 'org.testng:testng:7.1.0'
-    compile 'io.qameta.allure:allure-java-commons:2.13.3'
-
+    implementation ('com.codeborne:selenide:5.11.1')
+    testImplementation ('io.qameta.allure:allure-selenide:2.10.0')
+    implementation ('io.qameta.allure:allure-testng:2.13.3')
+    implementation ('org.testng:testng:7.1.0')
+    implementation ('io.qameta.allure:allure-java-commons:2.13.5')
 }
 
 test {
     useTestNG()
 }
+
+apply plugin: "io.qameta.allure"
+
+wrapper.gradleVersion = "5.6"

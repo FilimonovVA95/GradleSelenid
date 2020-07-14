@@ -4,6 +4,7 @@ public abstract class AbstractClient {
 
     public String email;
     public String password;
+    boolean isRegistration;
 
     public Enum rate;
 
