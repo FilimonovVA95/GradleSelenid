@@ -30,6 +30,13 @@ public class AuthenticationPage extends AbstractPage {
                 checkLoginButton(), "Open test stand exception");
     }
 
+    @Step("Открыть предПрод стенд")
+    public void openPreprodStand() {
+        Selenide.open(getStand());
+        checkAndScreenShot("Проверяем активность кнопки 'Войти'",
+                checkLoginButton(), "Open test stand exception");
+    }
+
     @Step("Нажать кнопку 'Войти'")
     public void openPopUp() {
         loginButton.click();
